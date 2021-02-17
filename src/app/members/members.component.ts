@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Member }            from '../member';
-import { MemberService }     from '../member.service';
-import { MessageService }    from '../message.service';
+import { Member } from '../member';
+import { MemberService } from '../member.service';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-members',
@@ -12,14 +12,14 @@ export class MembersComponent implements OnInit {
 
   members: Member[];
 
-  constructor(private memberService:  MemberService ) { }
+  constructor(private memberService: MemberService) { }
 
   ngOnInit(): void {
     this.getMembers();
   }
 
   getMembers(): void {
-    this.memberService.getMembers()
+    this.memberService.getMembers() // Observable
       .subscribe(members => this.members = members);
   }
 
